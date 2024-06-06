@@ -1,0 +1,21 @@
+services:
+  app-v1:
+    image: docker-spring-boot-demo-v1:latest
+    build:
+      context: docker-spring-boot-demo-v1
+    networks:
+      - app-network
+    ports:
+      - "8081:8080"
+  app-v2:
+    image: docker-spring-boot-demo-v2:latest
+    build:
+      context: docker-spring-boot-demo-v2
+    networks:
+      - app-network
+    ports:
+      - "8082:8080"
+
+networks:
+  app-network:
+    driver: bridge
